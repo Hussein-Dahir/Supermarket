@@ -1,54 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_height="match_parent"
     tools:context="com.example.fadi.supermarket.activity.CatalogActivity">
 
-    <ImageView
-        android:id="@+id/meatFish"
-        android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignStart="@+id/linearLayout1"
-        android:layout_below="@+id/bread"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/rawmeatproteinfamily" />
 
-    <ImageView
-        android:id="@+id/bread"
+    <ImageButton
+        android:id="@+id/catalogNonFood"
         android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:layout_alignLeft="@+id/foodStuff"
-        android:layout_alignStart="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/bread" />
+        android:layout_height="142dp"
+     />
 
-    <ImageView
-        android:id="@+id/foodStuff"
+    <ImageButton
+        android:id="@+id/catalogFood"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignStart="@+id/linearLayout1"
-        android:layout_below="@+id/nonFood"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/foodstuff" />
+        android:layout_height="142dp"
+      />
 
-    <ImageView
-        android:id="@+id/nonFood"
+    <ImageButton
+        android:id="@+id/catalogMeat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_alignStart="@+id/linearLayout2"
-        android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/nonfood" />
+        android:layout_height="142dp"
+        />
 
+    <ImageButton
+        android:id="@+id/catalogBread"
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+         />
 </LinearLayout>

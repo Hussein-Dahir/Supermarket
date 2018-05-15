@@ -25,10 +25,18 @@ public class HomeActivity extends AppCompatActivity {
         ImageView saleButton = (ImageView)findViewById(R.id.sale);
 
 
+        bestOffersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent catalogIntent = new Intent(getApplicationContext(), CategoryActivity.class);
+                startActivity(catalogIntent);
+            }
+        });
+
         catalogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catalogIntent = new Intent(getApplicationContext(), CatalogActivity.class);
+                Intent catalogIntent = new Intent(getApplicationContext(), CategoryActivity.class);
                 startActivity(catalogIntent);
             }
         });

@@ -1,10 +1,13 @@
 package com.example.fadi.supermarket.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import com.example.fadi.supermarket.R;
 
@@ -15,17 +18,34 @@ public class CatalogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
-        ImageView meatFish = (ImageView) findViewById(R.id.meatFish);
-        ImageView bread = (ImageView) findViewById(R.id.bread);
-        ImageView nonFood = (ImageView) findViewById(R.id.nonFood);
-        ImageView food = (ImageView) findViewById(R.id.foodStuff);
+        ImageButton meat = (ImageButton) findViewById(R.id.catalogMeat);
+        ImageButton food = (ImageButton) findViewById(R.id.catalogFood);
+        ImageButton nonfood = (ImageButton) findViewById(R.id.catalogNonFood);
+        ImageButton bread = (ImageButton) findViewById(R.id.catalogBread);
 
-
-        meatFish.setOnClickListener(new View.OnClickListener() {
+        meat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "meat");
+                startActivity(intent);
+            }
+        });
+
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                intent.putExtra("type" , "food");
+                startActivity(intent);
+            }
+        });
+
+        nonfood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                intent.putExtra("type" , "nonfood");
                 startActivity(intent);
             }
         });
@@ -36,26 +56,8 @@ public class CatalogActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
                 intent.putExtra("type" , "bread");
                 startActivity(intent);
-
-            }
-        });
-
-        nonFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
-                intent.putExtra("type" , "nonFood");
-                startActivity(intent);
-
-            }
-        });
-        food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
-                intent.putExtra("type" , "food");
-                startActivity(intent);
             }
         });
     }
+
 }
