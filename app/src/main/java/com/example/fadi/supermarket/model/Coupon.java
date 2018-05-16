@@ -2,26 +2,16 @@ package com.example.fadi.supermarket.model;
 
 public class Coupon {
 
-    private int id;
     private String name;
     private String description;
 
+    public Coupon() {
 
-    public Coupon(int id, String name, String description) {
-        this.id = id;
+    }
+
+    public Coupon(String name, String description) {
         this.name = name;
         this.description = description;
-    }
-
-    public Coupon() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -40,4 +30,11 @@ public class Coupon {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Coupon{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

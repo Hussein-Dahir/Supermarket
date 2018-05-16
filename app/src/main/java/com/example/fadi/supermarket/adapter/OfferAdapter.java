@@ -40,10 +40,10 @@ public class OfferAdapter extends ArrayAdapter<Offer> {
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
         imageView.setImageResource(R.drawable.no_image);
 
-        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_text);
+        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_text1);
         nameTextView.setText(offer.getItemList());
 
-        TextView priceTextView = (TextView) listItem.findViewById(R.id.textView_price);
+        TextView priceTextView = (TextView) listItem.findViewById(R.id.textView_text2);
         priceTextView.setText(offer.getPrice() + "");
 
         return listItem;

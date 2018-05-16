@@ -1,5 +1,6 @@
 package com.example.fadi.supermarket.util;
 
+import com.example.fadi.supermarket.model.Coupon;
 import com.example.fadi.supermarket.model.Offer;
 import com.example.fadi.supermarket.model.Product;
 
@@ -71,4 +72,29 @@ public class JsonParser {
 
         return offers;
     }
+
+    public static ArrayList<Coupon> parseCouponsJson(String json) {
+        ArrayList<Coupon> coupons = new ArrayList<>();
+
+        if (json == null) {
+            return coupons;
+        }
+
+        try {
+            JSONArray dataJsonArray = new JSONArray(json);
+
+            for (int i = 0; i < dataJsonArray.length(); i++) {
+                JSONObject jsonCouponObject = (JSONObject) dataJsonArray.get(i);
+                Coupon coupon = new Coupon();
+                coupon.setName(jsonCouponObject.getString("name"));
+                coupon.setDescription(jsonCouponObject.getString("des"));
+                coupons.add(coupon);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return coupons;
+    }
+
 }
