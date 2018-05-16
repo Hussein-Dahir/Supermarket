@@ -41,18 +41,18 @@ public class LoginFragment extends Fragment implements AsyncResponse {
         final SharedPreferences sharedPreferences = getActivity().getSharedPreferences("ApplicationUsers", MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
-            if (!(sharedPreferences.getString("email", "noValue").equals("noValue"))) {
-                emailET.setText(sharedPreferences.getString("email", "noValue"));
-                passwordET.setText(sharedPreferences.getString("password", "noValue"));
-                rememberCheck.setChecked(true);
-            }
+        if (!(sharedPreferences.getString("email", "noValue").equals("noValue"))) {
+            emailET.setText(sharedPreferences.getString("email", "noValue"));
+            passwordET.setText(sharedPreferences.getString("password", "noValue"));
+            rememberCheck.setChecked(true);
+        }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = emailET.getText().toString();
                 String password = passwordET.getText().toString();
-                if(rememberCheck.isChecked()){
+                if (rememberCheck.isChecked()) {
                     if (!(sharedPreferences.getString("email", "noValue").equals("noValue"))) {
                         editor.putString("email", email);
                         editor.putString("password", password);
@@ -77,6 +77,7 @@ public class LoginFragment extends Fragment implements AsyncResponse {
             startActivity(homeIntent);
         } else {
             Toast.makeText(getActivity(), "Username and password don't match!",
-                    Toast.LENGTH_LONG).show();        }
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }

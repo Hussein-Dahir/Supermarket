@@ -16,8 +16,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ImageView catalogButton = (ImageView)findViewById(R.id.catalog);
-        ImageView contactButton = (ImageView)findViewById(R.id.contact);
         ImageView couponsButton = (ImageView)findViewById(R.id.coupon);
+        ImageView contactButton = (ImageView)findViewById(R.id.contact);
         ImageView brandsButton = (ImageView)findViewById(R.id.brands);
         ImageView bestOffersButton = (ImageView)findViewById(R.id.bestOff);
         ImageView aboutButton = (ImageView)findViewById(R.id.aboutUs);
@@ -25,18 +25,18 @@ public class HomeActivity extends AppCompatActivity {
         ImageView saleButton = (ImageView)findViewById(R.id.sale);
 
 
-        bestOffersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent catalogIntent = new Intent(getApplicationContext(), CategoryActivity.class);
-                startActivity(catalogIntent);
-            }
-        });
+//        bestOffersButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent catalogIntent = new Intent(getApplicationContext(), CatalogActivity.class);
+//                startActivity(catalogIntent);
+//            }
+//        });
 
         catalogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catalogIntent = new Intent(getApplicationContext(), CategoryActivity.class);
+                Intent catalogIntent = new Intent(getApplicationContext(), CatalogActivity.class);
                 startActivity(catalogIntent);
             }
         });
