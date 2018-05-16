@@ -33,14 +33,14 @@ public class OfferAdapter extends ArrayAdapter<Offer> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if (listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false);
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.single_list_item, parent, false);
 
         Offer offer = offersList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
         imageView.setImageResource(R.drawable.no_image);
 
-        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_name);
+        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_text);
         nameTextView.setText(offer.getItemList());
 
         TextView priceTextView = (TextView) listItem.findViewById(R.id.textView_price);

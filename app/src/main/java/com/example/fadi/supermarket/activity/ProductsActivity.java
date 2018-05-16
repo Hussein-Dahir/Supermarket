@@ -53,7 +53,7 @@ public class ProductsActivity extends AppCompatActivity implements AsyncResponse
 
         ArrayList<Product> products = JsonParser.parseProductsJson(jsonString);
 
-        ListView listView = (ListView) findViewById(R.id.products_list);
+        ListView listView = (ListView) findViewById(R.id.items_list);
 
         ProductAdapter productAdapter = new ProductAdapter(this, products);
 

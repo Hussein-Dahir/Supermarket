@@ -33,14 +33,14 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if (listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false);
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.single_list_item, parent, false);
 
         Product product = productList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
         imageView.setImageResource(R.drawable.no_image);
 
-        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_name);
+        TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_text);
         nameTextView.setText(product.getName());
 
         TextView priceTextView = (TextView) listItem.findViewById(R.id.textView_price);

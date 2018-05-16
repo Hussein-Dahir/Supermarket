@@ -1,17 +1,14 @@
 package com.example.fadi.supermarket.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.adapter.OfferAdapter;
-import com.example.fadi.supermarket.adapter.ProductAdapter;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.GetDataAsyncTaskRunner;
 import com.example.fadi.supermarket.model.Offer;
-import com.example.fadi.supermarket.model.Product;
 import com.example.fadi.supermarket.other.Constants;
 import com.example.fadi.supermarket.util.JsonParser;
 
@@ -38,7 +35,7 @@ public class OffersActivity extends AppCompatActivity implements AsyncResponse {
 
         ArrayList<Offer> offers = JsonParser.parseOffersJson(jsonString);
 
-        ListView listView = (ListView) findViewById(R.id.products_list);
+        ListView listView = (ListView) findViewById(R.id.items_list);
 
         OfferAdapter offerAdapter = new OfferAdapter(this, offers);
 
