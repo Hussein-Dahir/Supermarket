@@ -45,7 +45,6 @@ public class ProductsActivity extends AppCompatActivity implements AsyncResponse
                 asyncTaskRunner.execute(Constants.GET_NON_FOOD_PRODUCTS_URL);
                 break;
         }
-
     }
 
     public void processData(Object data) {

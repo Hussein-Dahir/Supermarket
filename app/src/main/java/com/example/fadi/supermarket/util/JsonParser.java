@@ -44,22 +44,23 @@ public class JsonParser {
         }
 
         try {
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray("foodlist");
+            JSONObject dataJsonObject = new JSONObject(json);
+            JSONArray offerListJsonArray = dataJsonObject.getJSONArray("offerlist");
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonOfferObject = (JSONObject) jsonArray.get(i);
+            for (int i = 0; i < offerListJsonArray.length(); i++) {
+                JSONObject jsonOfferObject = (JSONObject) offerListJsonArray.get(i);
+
                 Offer offer = new Offer();
 
-                JSONArray jsonItemList = jsonObject.getJSONArray("itemlist");
+                offer.setPrice(jsonOfferObject.getDouble("price"));
 
                 StringBuilder itemListSB = new StringBuilder();
-                for (int j = 0; j < jsonItemList.length(); j++) {
-                    String item = (String) jsonItemList.get(j);
-                    itemListSB.append(item + " + ");
-                }
 
-                offer.setPrice(jsonOfferObject.getDouble("price"));
+                JSONArray itemListJsonArray = jsonOfferObject.getJSONArray("itemlist");
+                for (int j = 0; j < itemListJsonArray.length(); j++) {
+                    String item = (String)itemListJsonArray.get(j);
+                    itemListSB.append(item + "\n");
+                }
                 offer.setItemList(itemListSB.toString());
 
                 offers.add(offer);

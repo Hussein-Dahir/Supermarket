@@ -11,21 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fadi.supermarket.R;
-import com.example.fadi.supermarket.model.Product;
+import com.example.fadi.supermarket.model.Offer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProductAdapter extends ArrayAdapter<Product> {
+public class OfferAdapter extends ArrayAdapter<Offer> {
 
     private Context mContext;
-    private List<Product> productList;
+    private List<Offer> offersList;
 
-    public ProductAdapter(@NonNull Context context, ArrayList<Product> list) {
+    public OfferAdapter(@NonNull Context context, ArrayList<Offer> list) {
         super(context, 0, list);
         mContext = context;
-        productList = list;
+        offersList = list;
     }
 
     @NonNull
@@ -35,16 +35,16 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         if (listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false);
 
-        Product product = productList.get(position);
+        Offer offer = offersList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
         imageView.setImageResource(R.drawable.no_image);
 
         TextView nameTextView = (TextView) listItem.findViewById(R.id.textView_name);
-        nameTextView.setText(product.getName());
+        nameTextView.setText(offer.getItemList());
 
         TextView priceTextView = (TextView) listItem.findViewById(R.id.textView_price);
-        priceTextView.setText(product.getPrice() + "");
+        priceTextView.setText(offer.getPrice() + "");
 
         return listItem;
     }

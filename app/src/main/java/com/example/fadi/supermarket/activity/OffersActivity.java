@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.adapter.OfferAdapter;
 import com.example.fadi.supermarket.adapter.ProductAdapter;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.GetDataAsyncTaskRunner;
+import com.example.fadi.supermarket.model.Offer;
 import com.example.fadi.supermarket.model.Product;
 import com.example.fadi.supermarket.other.Constants;
 import com.example.fadi.supermarket.util.JsonParser;
@@ -22,42 +24,24 @@ public class OffersActivity extends AppCompatActivity implements AsyncResponse {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
 
-        Intent intent = getIntent();
-        String type = intent.getStringExtra("type");
-        this.getData(type);
+        this.getData();
     }
 
-    public void getData(String type) {
-
+    public void getData() {
         GetDataAsyncTaskRunner asyncTaskRunner = new GetDataAsyncTaskRunner(this);
-
-        switch (type) {
-            case "meat":
-                asyncTaskRunner.execute(Constants.GET_MEAT_PRODUCTS_URL);
-                break;
-            case "bread":
-                asyncTaskRunner.execute(Constants.GET_BREAD_PRODUCTS_URL);
-                break;
-            case "food":
-                asyncTaskRunner.execute(Constants.GET_FOOD_PRODUCTS_URL);
-                break;
-            case "nonFood":
-                asyncTaskRunner.execute(Constants.GET_NON_FOOD_PRODUCTS_URL);
-                break;
-        }
-
+        asyncTaskRunner.execute(Constants.GET_OFFERS_URL);
     }
 
     public void processData(Object data) {
 
         String jsonString = (String) data;
 
-        ArrayList<Product> products = JsonParser.parseProductsJson(jsonString);
+        ArrayList<Offer> offers = JsonParser.parseOffersJson(jsonString);
 
         ListView listView = (ListView) findViewById(R.id.products_list);
 
-        ProductAdapter productAdapter = new ProductAdapter(this, products);
+        OfferAdapter offerAdapter = new OfferAdapter(this, offers);
 
-        listView.setAdapter(productAdapter);
+        listView.setAdapter(offerAdapter);
     }
 }

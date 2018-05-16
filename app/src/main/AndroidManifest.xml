@@ -20,11 +20,11 @@
         </activity>
         <activity android:name=".activity.CouponActivity" />
         <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.OffersActivity" />
         <activity
             android:name=".activity.ProductsActivity"
             android:label="@string/title_activity_list_items"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.AboutUsActivity" />
         <activity
             android:name=".activity.CatalogActivity"
             android:label="@string/title_activity_catalog"
