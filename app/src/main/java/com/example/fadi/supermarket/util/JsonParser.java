@@ -1,6 +1,6 @@
 package com.example.fadi.supermarket.util;
 
-import com.example.fadi.supermarket.model.Category;
+import com.example.fadi.supermarket.model.Offer;
 import com.example.fadi.supermarket.model.Product;
 
 import org.json.JSONArray;
@@ -35,4 +35,40 @@ public class JsonParser {
 
         return products;
     }
+
+    public static ArrayList<Offer> parseOffersJson(String json) {
+        ArrayList<Offer> offers = new ArrayList<>();
+
+        if (json == null) {
+            return offers;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray("foodlist");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonOfferObject = (JSONObject) jsonArray.get(i);
+                Offer offer = new Offer();
+
+                JSONArray jsonItemList = jsonObject.getJSONArray("itemlist");
+
+                StringBuilder itemListSB = new StringBuilder();
+                for (int j = 0; j < jsonItemList.length(); j++) {
+                    String item = (String) jsonItemList.get(j);
+                    itemListSB.append(item + " + ");
+                }
+
+                offer.setPrice(jsonOfferObject.getDouble("price"));
+                offer.setItemList(itemListSB.toString());
+
+                offers.add(offer);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return offers;
+    }
+
 }

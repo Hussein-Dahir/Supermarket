@@ -24,7 +24,7 @@ public class CatalogActivity extends AppCompatActivity {
         meatFish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
                 intent.putExtra("type" , "meat");
                 startActivity(intent);
             }
@@ -33,7 +33,7 @@ public class CatalogActivity extends AppCompatActivity {
         bread.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
                 intent.putExtra("type" , "bread");
                 startActivity(intent);
 
@@ -43,7 +43,7 @@ public class CatalogActivity extends AppCompatActivity {
         nonFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
                 intent.putExtra("type" , "nonFood");
                 startActivity(intent);
 
@@ -52,7 +52,7 @@ public class CatalogActivity extends AppCompatActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListItemsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
                 intent.putExtra("type" , "food");
                 startActivity(intent);
             }

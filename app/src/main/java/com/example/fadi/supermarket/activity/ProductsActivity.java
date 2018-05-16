@@ -15,7 +15,7 @@ import com.example.fadi.supermarket.util.JsonParser;
 
 import java.util.ArrayList;
 
-public class ListItemsActivity extends AppCompatActivity implements AsyncResponse {
+public class ProductsActivity extends AppCompatActivity implements AsyncResponse {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
