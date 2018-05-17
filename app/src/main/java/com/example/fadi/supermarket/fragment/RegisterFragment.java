@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
+import android.database.SQLException;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.activity.MainActivity;
@@ -81,9 +83,14 @@ public class RegisterFragment extends Fragment {
         User user = new User(email, name, password);
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
-        dataBaseHelper.insertUser(user);
 
         boolean successfullyRegistered = true;
+
+        try {
+            dataBaseHelper.insertUser(user);
+        } catch (SQLException e) {
+            successfullyRegistered = false;
+        }
 
         if (successfullyRegistered) {
             LoginFragment loginFragment = new LoginFragment();
@@ -93,7 +100,8 @@ public class RegisterFragment extends Fragment {
             fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
             fragmentTransaction2.commit();
         } else {
-            // TODO: show error message to user, that register failed
+            Toast.makeText(getActivity(), "Cannot register user with this email! please try something else.",
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

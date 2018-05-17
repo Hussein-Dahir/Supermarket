@@ -3,6 +3,7 @@ package com.example.fadi.supermarket.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -22,13 +23,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    public void insertUser(User user) {
+    public void insertUser(User user) throws SQLException {
         ContentValues contentValues = new ContentValues();
         contentValues.put("EMAIL", user.getEmail());
         contentValues.put("NAME", user.getName());
         contentValues.put("PASSWORD", user.getPassword());
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.insert("USERS", null, contentValues);
+        sqLiteDatabase.insertOrThrow("USERS", null, contentValues);
     }
 
     public Cursor getAllUsers() {
