@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ImageView catalogButton = (ImageView)findViewById(R.id.catalog);
         ImageView couponsButton = (ImageView)findViewById(R.id.coupon);
-        ImageView contactButton = (ImageView)findViewById(R.id.contact);
+        ImageView contactsButton = (ImageView)findViewById(R.id.contact);
         ImageView brandsButton = (ImageView)findViewById(R.id.brands);
         ImageView bestOffersButton = (ImageView)findViewById(R.id.bestOff);
         ImageView aboutButton = (ImageView)findViewById(R.id.aboutUs);
@@ -45,6 +45,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent couponIntent = new Intent(getApplicationContext(), CouponActivity.class);
+                startActivity(couponIntent);
+            }
+        });
+
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent couponIntent = new Intent(getApplicationContext(), AboutUsActivity.class);
                 startActivity(couponIntent);
             }
         });

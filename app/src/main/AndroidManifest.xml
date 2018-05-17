@@ -28,7 +28,8 @@
         <activity
             android:name=".activity.CatalogActivity"
             android:label="@string/title_activity_catalog"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.AboutUsActivity"></activity>
     </application>
 
 </manifest>
