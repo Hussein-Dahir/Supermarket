@@ -28,35 +28,41 @@ public class HomeActivity extends AppCompatActivity {
         bestOffersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent offersIntent = new Intent(getApplicationContext(), OffersActivity.class);
-                startActivity(offersIntent);
+                Intent intent = new Intent(getApplicationContext(), OffersActivity.class);
+                startActivity(intent);
             }
         });
 
         catalogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catalogIntent = new Intent(getApplicationContext(), CatalogActivity.class);
-                startActivity(catalogIntent);
+                Intent intent = new Intent(getApplicationContext(), CatalogActivity.class);
+                startActivity(intent);
             }
         });
 
         couponsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent couponIntent = new Intent(getApplicationContext(), CouponActivity.class);
-                startActivity(couponIntent);
+                Intent intent = new Intent(getApplicationContext(), CouponActivity.class);
+                startActivity(intent);
             }
         });
 
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent couponIntent = new Intent(getApplicationContext(), AboutUsActivity.class);
-                startActivity(couponIntent);
+                Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+                startActivity(intent);
             }
         });
 
-
+        contactsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
