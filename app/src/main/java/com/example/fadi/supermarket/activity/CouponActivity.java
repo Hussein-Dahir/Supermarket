@@ -6,11 +6,9 @@ import android.widget.ListView;
 
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.adapter.CouponAdapter;
-import com.example.fadi.supermarket.adapter.OfferAdapter;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.GetDataAsyncTaskRunner;
 import com.example.fadi.supermarket.model.Coupon;
-import com.example.fadi.supermarket.model.Offer;
 import com.example.fadi.supermarket.other.Constants;
 import com.example.fadi.supermarket.util.JsonParser;
 

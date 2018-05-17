@@ -1,6 +1,7 @@
 package com.example.fadi.supermarket.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.activity.CouponDetailsActivity;
 import com.example.fadi.supermarket.model.Coupon;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class CouponAdapter extends ArrayAdapter<Coupon> {
         if (listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.single_list_item, parent, false);
 
-        Coupon coupon = couponList.get(position);
+        final Coupon coupon = couponList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imageView_image);
         imageView.setImageResource(R.drawable.no_image);
@@ -45,6 +48,16 @@ public class CouponAdapter extends ArrayAdapter<Coupon> {
 
         TextView textView2 = (TextView) listItem.findViewById(R.id.textView_text2);
         textView2.setText(coupon.getDescription());
+
+        listItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, CouponDetailsActivity.class);
+                intent.putExtra("name", coupon.getName());
+                intent.putExtra("description", coupon.getDescription());
+                mContext.startActivity(intent);
+            }
+        });
 
         return listItem;
     }
