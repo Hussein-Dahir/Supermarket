@@ -15,8 +15,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.activity.MainActivity;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.RegisterAsyncTaskRunner;
+import com.example.fadi.supermarket.database.DataBaseHelper;
+import com.example.fadi.supermarket.model.User;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -24,7 +27,7 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment implements AsyncResponse {
+public class RegisterFragment extends Fragment {
 
 
     public RegisterFragment() {
@@ -59,15 +62,13 @@ public class RegisterFragment extends Fragment implements AsyncResponse {
                         editor.putString("password", password);
                         editor.commit();
                     }
-                    RegisterAsyncTaskRunner registerAsyncTaskRunner = new RegisterAsyncTaskRunner(RegisterFragment.this);
-                    registerAsyncTaskRunner.execute(name, email, password);
+
+                    registerUser(email, name, password);
+
                 } else {
                     passwordCET.setText("");
                     passwordCET.setHint("Please make sure both are matching");
                 }
-
-
-
             }
 
         });
@@ -75,10 +76,14 @@ public class RegisterFragment extends Fragment implements AsyncResponse {
         return myView;
     }
 
-    @Override
-    public void processData(Object data) {
+    public void registerUser(String email, String name, String password) {
 
-        Boolean successfullyRegistered = (Boolean) data;
+        User user = new User(email, name, password);
+
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+        dataBaseHelper.insertUser(user);
+
+        boolean successfullyRegistered = true;
 
         if (successfullyRegistered) {
             LoginFragment loginFragment = new LoginFragment();

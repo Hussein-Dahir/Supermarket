@@ -3,6 +3,7 @@ package com.example.fadi.supermarket.fragment;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,12 @@ import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.activity.HomeActivity;
 import com.example.fadi.supermarket.async.task.AsyncResponse;
 import com.example.fadi.supermarket.async.task.SignInAsyncTaskRunner;
+import com.example.fadi.supermarket.database.DataBaseHelper;
 
 import static android.R.attr.data;
 import static android.content.Context.MODE_PRIVATE;
 
-public class LoginFragment extends Fragment implements AsyncResponse {
+public class LoginFragment extends Fragment {
 
 
     public LoginFragment() {
@@ -52,6 +54,7 @@ public class LoginFragment extends Fragment implements AsyncResponse {
             public void onClick(View view) {
                 String email = emailET.getText().toString();
                 String password = passwordET.getText().toString();
+
                 if (rememberCheck.isChecked()) {
                     if (!(sharedPreferences.getString("email", "noValue").equals("noValue"))) {
                         editor.putString("email", email);
@@ -59,24 +62,31 @@ public class LoginFragment extends Fragment implements AsyncResponse {
                         editor.commit();
                     }
                 }
-                SignInAsyncTaskRunner signInAsyncTaskRunner = new SignInAsyncTaskRunner(LoginFragment.this);
-                signInAsyncTaskRunner.execute(email, password);
+
+                loginUser(email, password);
             }
         });
 
         return myView;
     }
 
-    @Override
-    public void processData(Object data) {
+    public void loginUser(String email, String password) {
 
-        Boolean successfullyLoggedIn = (Boolean) data;
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+        Cursor cursor = dataBaseHelper.getUser(email);
 
-        if (successfullyLoggedIn) {
+        String realPassword = null;
+
+        if(cursor != null && cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            realPassword = cursor.getString(2);
+        }
+
+        if (realPassword != null && password.equals(realPassword)) {
             Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
             startActivity(homeIntent);
         } else {
-            Toast.makeText(getActivity(), "Username and password don't match!",
+            Toast.makeText(getActivity(), "Wrong email or password!",
                     Toast.LENGTH_LONG).show();
         }
     }
