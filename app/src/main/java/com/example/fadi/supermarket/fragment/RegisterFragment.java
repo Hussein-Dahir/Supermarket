@@ -55,8 +55,8 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String name = nameET.getText().toString();
-                String password = passwordET.getText().toString();
                 String email = emailET.getText().toString();
+                String password = passwordET.getText().toString();
                 String passwordC = passwordCET.getText().toString();
                 if (passwordC.equals(password)) {
                     if(rememberCheckBox.isChecked()){
@@ -68,8 +68,8 @@ public class RegisterFragment extends Fragment {
                     registerUser(email, name, password);
 
                 } else {
-                    passwordCET.setText("");
-                    passwordCET.setHint("Please make sure both are matching");
+                    Toast.makeText(getActivity(), "passwords doesn't match!",
+                            Toast.LENGTH_LONG).show();
                 }
             }
 
