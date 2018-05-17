@@ -56,7 +56,7 @@ public class HttpManager {
         int postDataLength = postData.length;
         URL url;
         try {
-            url = new URL(Constants.SIGN_IN_URL);
+            url = new URL("");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects(false);
@@ -95,7 +95,7 @@ public class HttpManager {
         int postDataLength = postData.length;
         URL url;
         try {
-            url = new URL(Constants.REGISTER_URL);
+            url = new URL("");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects(false);
