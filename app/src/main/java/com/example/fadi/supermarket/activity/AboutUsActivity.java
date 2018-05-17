@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.fadi.supermarket.R;
 
+
 public class AboutUsActivity extends AppCompatActivity {
 
     @Override
