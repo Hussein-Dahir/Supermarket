@@ -31,7 +31,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.ContactsActivity" />
-        <activity android:name=".activity.CouponDetailsActivity"></activity>
+        <activity android:name=".activity.CouponDetailsActivity" />
+        <activity android:name=".activity.OfferDetailsActivity" />
     </application>
 
 </manifest>
