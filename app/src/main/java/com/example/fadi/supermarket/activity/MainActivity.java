@@ -13,7 +13,7 @@ import com.example.fadi.supermarket.fragment.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean inLoginPage = true;
+    public static boolean inLoginPage = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fadi.supermarket.R;
+import com.example.fadi.supermarket.activity.MainActivity;
 import com.example.fadi.supermarket.database.DataBaseHelper;
 import com.example.fadi.supermarket.model.User;
 
@@ -96,6 +97,7 @@ public class RegisterFragment extends Fragment {
             fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
             fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
             fragmentTransaction2.commit();
+            MainActivity.inLoginPage = true;
         } else {
             Toast.makeText(getActivity(), "Cannot register user with this email! please try something else.",
                     Toast.LENGTH_LONG).show();
