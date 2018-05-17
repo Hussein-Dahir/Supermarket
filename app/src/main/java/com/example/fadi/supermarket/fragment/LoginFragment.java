@@ -15,11 +15,8 @@ import android.widget.Toast;
 
 import com.example.fadi.supermarket.R;
 import com.example.fadi.supermarket.activity.HomeActivity;
-import com.example.fadi.supermarket.async.task.AsyncResponse;
-import com.example.fadi.supermarket.async.task.SignInAsyncTaskRunner;
 import com.example.fadi.supermarket.database.DataBaseHelper;
 
-import static android.R.attr.data;
 import static android.content.Context.MODE_PRIVATE;
 
 public class LoginFragment extends Fragment {
