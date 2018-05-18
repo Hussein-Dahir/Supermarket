@@ -17,7 +17,7 @@
             android:id="@+id/nameRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Name"
+            android:hint=" Name"
             android:background="@drawable/edit_text_style"
             android:selectAllOnFocus="false"
             />
@@ -26,7 +26,7 @@
             android:id="@+id/emailRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Email"
+            android:hint=" Email"
             android:background="@drawable/edit_text_style"
              />
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/edit_text_style"
-            android:hint="Password"
+            android:hint=" Password"
             android:inputType="textPassword" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/edit_text_style"
-            android:hint="Confim Password"
+            android:hint=" Confim Password"
             android:inputType="textPassword" />
 
         <CheckBox

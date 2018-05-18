@@ -57,18 +57,26 @@ public class RegisterFragment extends Fragment {
                 String email = emailET.getText().toString();
                 String password = passwordET.getText().toString();
                 String passwordC = passwordCET.getText().toString();
-                if (passwordC.equals(password)) {
-                    if(rememberCheckBox.isChecked()){
-                        editor.putString("email", email);
-                        editor.putString("password", password);
-                        editor.commit();
-                    }
-
-                    registerUser(email, name, password);
-
-                } else {
-                    Toast.makeText(getActivity(), "passwords doesn't match!",
+                if(passwordC.equals("") || password.equals("") || email.equals("") || name.equals(""))
+                {
+                    Toast.makeText(getActivity(), "Please make sure all data fields are filled!",
                             Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    if (passwordC.equals(password)) {
+                        if (rememberCheckBox.isChecked()) {
+                            editor.putString("email", email);
+                            editor.putString("password", password);
+                            editor.commit();
+                        }
+
+                        registerUser(email, name, password);
+
+                    } else {
+                        Toast.makeText(getActivity(), "passwords doesn't match!",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 

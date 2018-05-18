@@ -3,11 +3,14 @@ package com.example.fadi.supermarket.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.fadi.supermarket.fragment.LoginFragment;
 import com.example.fadi.supermarket.R;
@@ -27,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("Login Screen");
         setContentView(R.layout.activity_main);
-
+        LinearLayout twoButtonLinearLayout = (LinearLayout) findViewById(R.id.linearLayoutButtons);
+        twoButtonLinearLayout.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.edit_text_style));
         fragmentTransaction.add(R.id.linearLayout2, loginFragment, "loginFragment");
         fragmentTransaction.commit();
 

@@ -17,7 +17,7 @@
             android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Email"
+            android:hint=" Email"
             android:background="@drawable/edit_text_style"
             android:selectAllOnFocus="false" />
 
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint=" Password"
             android:background="@drawable/edit_text_style"
             android:inputType="textPassword" />
 
