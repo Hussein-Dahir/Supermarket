@@ -2,8 +2,10 @@ package com.example.fadi.supermarket.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         final Button registerChoice = (Button) findViewById(R.id.registerButton);
         final Button loginChoice = (Button) findViewById(R.id.loginButton);
 
+        loginChoice.setBackgroundColor(Color.GRAY);
+        registerChoice.setBackgroundColor(Color.WHITE);
+        registerChoice.setTextColor(Color.GRAY);
+        loginChoice.setTextColor(Color.WHITE);
 
         loginChoice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
                     fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("registerFragment"));
                     fragmentTransaction2.add(R.id.linearLayout2, loginFragment, "loginFragment");
+
+                    loginChoice.setBackgroundColor(Color.GRAY);
+                    registerChoice.setBackgroundColor(Color.WHITE);
+                    registerChoice.setTextColor(Color.GRAY);
+                    loginChoice.setTextColor(Color.WHITE);
                     fragmentTransaction2.commit();
                     inLoginPage = true;
                 }
@@ -58,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
                     fragmentTransaction2.remove(fragmentManager2.findFragmentByTag("loginFragment"));
                     fragmentTransaction2.add(R.id.linearLayout2, registerFragment, "registerFragment");
+
+                    loginChoice.setBackgroundColor(Color.WHITE);
+                    registerChoice.setBackgroundColor(Color.GRAY);
+                    registerChoice.setTextColor(Color.WHITE);
+                    loginChoice.setTextColor(Color.GRAY);
                     fragmentTransaction2.commit();
                     inLoginPage = false;
                 }
